@@ -5,8 +5,8 @@ platform :ios, '11.0'
 
 project 'Bitrise',
         'Qa.Debug' => :debug,
-        'Qa.Release' => :release,
-        
+        'Qa.Release' => :release
+
 
 
 target 'Bitrise' do
