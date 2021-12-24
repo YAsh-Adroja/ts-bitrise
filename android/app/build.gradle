@@ -185,14 +185,14 @@ android {
             applicationIdSuffix ".dev"
 
         }
-        prod {
-            dimension 'default'
-            applicationIdSuffix ".prod"
-        }
-        qa {
-            dimension 'default'
-            applicationIdSuffix ".qa"
-        }
+//         prod {
+//             dimension 'default'
+//             applicationIdSuffix ".prod"
+//         }
+//         qa {
+//             dimension 'default'
+//             applicationIdSuffix ".qa"
+//         }
     }
 
     // applicationVariants are e.g. debug, release
