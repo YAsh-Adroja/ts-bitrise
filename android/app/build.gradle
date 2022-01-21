@@ -183,16 +183,22 @@ android {
         dev {
             dimension 'default'
             applicationIdSuffix ".dev"
+            versionCode 5
+            versionName "1.4"
 
         }
-//         prod {
-//             dimension 'default'
-//             applicationIdSuffix ".prod"
-//         }
-//         qa {
-//             dimension 'default'
-//             applicationIdSuffix ".qa"
-//         }
+        prod {
+            dimension 'default'
+            applicationIdSuffix ".prod"
+            versionCode 1
+            versionName "1.0"
+        }
+        qa {
+            dimension 'default'
+            applicationIdSuffix ".qa"
+            versionCode 1
+            versionName "1.0"
+        }
     }
 
     // applicationVariants are e.g. debug, release
