@@ -6,9 +6,10 @@
  * @flow strict-local
  */
 
-import React from 'react';
+import React, {useEffect} from 'react';
 import type {Node} from 'react';
 import {
+  Platform,
   SafeAreaView,
   ScrollView,
   StatusBar,
@@ -25,10 +26,13 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+import Bugsee from 'react-native-bugsee';
+import RNUxcam from 'react-native-ux-cam';
 
 // Manage that
 const Section = ({children, title}): Node => {
   const isDarkMode = useColorScheme() === 'dark';
+
   return (
     <View style={styles.sectionContainer}>
       <Text
@@ -58,6 +62,30 @@ const App: () => Node = () => {
 
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
+  };
+
+  useEffect(() => {
+    launchBugSee().then();
+  }, []);
+
+  const launchBugSee = async () => {
+    if (Platform.OS === 'ios') {
+      // This id use for iOS
+      await Bugsee.launch('82551107-1751-4923-9bfc-57992d663ce3');
+
+      // UX-Cam
+      RNUxcam.optIntoSchematicRecordings(); // Add this line to enable iOS screen recordings
+      RNUxcam.startWithKey('fom58ltayuemril'); // Add this line after RNUcam.optIntoSchematicRecordings();
+    } else {
+      // This id use for android
+      await Bugsee.launch('804946b7-4b5e-476a-86cc-74eb38e92afd');
+
+      // UX-Cam
+      RNUxcam.startWithKey('03cwa8odl2zs84s'); // Add this line after RNUcam.optIntoSchematicRecordings();
+    }
+    Bugsee.log('Some log message');
+    const test = {};
+    console.log(test.should.crash);
   };
 
   return (
